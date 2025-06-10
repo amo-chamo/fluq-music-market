@@ -41,15 +41,12 @@ public class Track {
     private Integer releaseYear;
 
     @Column(name = "music_file", nullable = false)
-    @Lob
     private byte[] musicFile;
 
     @Column(name = "preview_file", nullable = false)
-    @Lob
     private byte[] previewFile;
 
     @Column(name = "cover_image", nullable = false)
-    @Lob
     private byte[] coverImage;
 
     @OneToMany(mappedBy = "track", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -36,6 +36,9 @@ public class Artist {
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
+    @Column(name = "profile_picture")
+    private byte[] profilePicture;
+
     @Column(name = "total_earnings", nullable = false)
     private BigDecimal totalEarnings = BigDecimal.ZERO;
 

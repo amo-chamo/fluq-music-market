@@ -27,7 +27,7 @@ public class UserCreditCard {
     private User user;
 
     @ManyToOne
-    @MapsId("cardId")
+    @MapsId("creditCardId")
     @JoinColumn(name = "card_id")
     private CreditCard creditCard;
 
