@@ -13,14 +13,15 @@ CREATE TABLE users
 
 CREATE TABLE artists
 (
-    id             SERIAL PRIMARY KEY,
-    artist_name    VARCHAR(100) NOT NULL UNIQUE,
-    bio            TEXT           DEFAULT NULL,
-    email          VARCHAR(100) NOT NULL UNIQUE,
-    password_hash  TEXT         NOT NULL,
-    total_earnings NUMERIC(10, 2) DEFAULT 0.00,
-    is_verified    BOOLEAN        DEFAULT FALSE,
-    created_at     DATE           DEFAULT CURRENT_DATE
+    id              SERIAL PRIMARY KEY,
+    artist_name     VARCHAR(100) NOT NULL UNIQUE,
+    bio             TEXT           DEFAULT NULL,
+    email           VARCHAR(100) NOT NULL UNIQUE,
+    password_hash   TEXT         NOT NULL,
+    total_earnings  NUMERIC(10, 2) DEFAULT 0.00,
+    is_verified     BOOLEAN        DEFAULT FALSE,
+    created_at      DATE           DEFAULT CURRENT_DATE,
+    profile_picture BYTEA
 );
 
 
@@ -123,11 +124,11 @@ CREATE TYPE payment_method AS ENUM ('FUNDS', 'CARD');
 CREATE TABLE transaction
 (
     id             SERIAL PRIMARY KEY,
-    user_id        INTEGER          NOT NULL REFERENCES users (id) ON DELETE NO ACTION ,
+    user_id        INTEGER          NOT NULL REFERENCES users (id) ON DELETE NO ACTION,
     type           transaction_type NOT NULL,
     amount         NUMERIC(10, 2)   NOT NULL,
     payment_method payment_method   NOT NULL,
-    card_id        INTEGER          REFERENCES credit_card (id) ON DELETE NO ACTION ,
+    card_id        INTEGER REFERENCES credit_card (id) ON DELETE NO ACTION,
     datetime       TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
     details        TEXT             NOT NULL
 );
