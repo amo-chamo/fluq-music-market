@@ -1,4 +1,4 @@
-package org.amochamo.fluqmusicmarket.repositories;
+package org.amochamo.fluqmusicmarket.repositories.artiststuff;
 
 import org.amochamo.fluqmusicmarket.models.artiststuff.Track;
 import org.amochamo.fluqmusicmarket.models.roles.Artist;
